@@ -11,7 +11,8 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_NAME := aosp_us997
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE="g6" \
+    TARGET_DEVICE="lucye" \
+    PRODUCT_DEVICE="lucye" \
     PRODUCT_NAME="lucye_nao_us" \
     PRIVATE_BUILD_DESC="lucye_nao_us-user 7.0 NRD90U 172061549d102 release-keys"
 
