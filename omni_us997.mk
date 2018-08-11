@@ -38,19 +38,6 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-# Define time zone data path
-ifneq ($(wildcard bionic/libc/zoneinfo),)
-    TZDATAPATH := bionic/libc/zoneinfo
-else ifneq ($(wildcard system/timezone),)
-    TZDATAPATH := system/timezone/output_data/iana
-endif
-
-# Time Zone data for Recovery
-ifdef TZDATAPATH
-PRODUCT_COPY_FILES += \
-    $(TZDATAPATH)/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
-endif
-
 # Release name
 PRODUCT_RELEASE_NAME := us997
 
