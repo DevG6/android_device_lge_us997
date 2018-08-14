@@ -13,26 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# common g6
-$(call inherit-product, device/lge/g6-common/g6.mk)
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product-if-exists, vendor/lge/us997/us997-vendor.mk)
+LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/lge/us997/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+ifneq ($(filter us997,$(TARGET_DEVICE)),)
+include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-
-PRODUCT_DEVICE := us997
-PRODUCT_NAME := omni_us997
-PRODUCT_BRAND := lge
-PRODUCT_MODEL := LG-US997
-PRODUCT_MANUFACTURER := LGE
-
